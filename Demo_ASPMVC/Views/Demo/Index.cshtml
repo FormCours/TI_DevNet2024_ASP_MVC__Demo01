@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PersonViewModel>;
+@* ↑ Cette vue a besoin de donnée *@ 
+
+@{
+    ViewData["Title"] = "Exemple d'utilisation de Razor";
+
+    int table = 13;
+    int nb = (int?)ViewData["nb"] ?? 0;
+}
+
+<h1>Deme Razor（⊙ｏ⊙）</h1>
+<h2>La réponse est @nb</h2>
+<p>Courriel : della.duck@techni.be</p>
+<p>Message : @ViewData["message"]</p>
+
+<h3>Table de multiplication de @table</h3>
+<ul>
+    @{
+        int nbOperation = 10;
+
+        for (int i = 1; i <= nbOperation; i++)
+        {
+            int res = table * i;
+            <li>@i x @table = @res</li>
+        }
+    }
+</ul>
+
+<h3>La liste des personne</h3>
+<ul>
+    @foreach (PersonViewModel person in Model)
+    {
+        <li>@person.Firstname @person.Lastname.ToUpper()</li>
+    }
+</ul>

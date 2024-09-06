@@ -1,0 +1,18 @@
+﻿@{
+    DateTime now = (DateTime)ViewData["now"]!;
+}
+
+
+<h1>Ceci est une route !</h1>
+<p>Il est @now.ToLongTimeString()</p>
+
+@if (TempData["MoveIt"] is not null)
+{
+    <p>
+        Tu as subit une redirection...!
+        <br />
+        Le nouveau lien : <a asp-action="CurrentRoute">Ici</a>
+    </p>
+}
+
+<img src="/images/autoroute-abandonnee.jpg" alt="L'autoroute A601"> 
